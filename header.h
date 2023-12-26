@@ -2,6 +2,7 @@
 #define HEADER_H
 
 #include <string>
+using namespace std;
 
 template <class T>
 class LinkedList
