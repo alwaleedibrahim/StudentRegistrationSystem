@@ -25,6 +25,29 @@ void LinkedList<T>::insert(T data) {
 };
 
 template <class T>
+void LinkedList<T>::deleteNode (T data) {
+    Node *cur, *prev;
+    cur = head;
+    prev = NULL;
+
+    if (cur != NULL && cur->data.getID() == data.getID()) {
+        head = cur->next;
+        delete cur;
+        return;
+    }
+
+    while (cur != NULL) {
+        if (cur->data.getID() == data.getID()) {
+            prev->next = cur->next;
+            delete cur;
+            return;
+        }
+        prev = cur;
+        cur = cur->next;
+    };
+};
+
+template <class T>
 void LinkedList<T>::traverse() {
     Node *cur;
     cur = head;
@@ -36,7 +59,7 @@ void LinkedList<T>::traverse() {
 
 
 Student::Student(int studentID, string studentName) {
-    this->studentID = studentID;
+    this->ID = studentID;
     this->studentName = studentName;
     this->coursesCount =0;
     for (int i=0; i<10; i++) {
@@ -49,7 +72,7 @@ Student::~Student() {
 };
 
 void Student::display() {
-    cout << "Student ID: " << this->studentID << endl;
+    cout << "Student ID: " << this->ID << endl;
     cout << "Student Name: " << this->studentName << endl;
     cout << "Registered Courses: " << endl;
     for (int i=0; i<10; i++) {
@@ -87,8 +110,12 @@ void Student::dropCourse(int courseCode) {
     cout << "Course not found!" << endl;
 }
 
+int Student::getID() {
+    return this->ID;
+}
+
 Course::Course(int courseID, string courseName) {
-    this->courseID = courseID;
+    this->ID = courseID;
     this->courseName = courseName;
 };
 
@@ -97,6 +124,10 @@ Course::~Course() {
 };
 
 void Course::display() {
-    cout << "Course ID: " << this->courseID << endl;
+    cout << "Course ID: " << this->ID << endl;
     cout << "Course Name: " << this->courseName << endl;
+}
+
+int Course::getID() {
+    return this->ID;
 }

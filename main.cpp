@@ -18,6 +18,9 @@ int main () {
     courses->insert(cs505);
     courses->traverse();
 
+    courses->deleteNode(cs505);
+    courses->traverse();
+
     Student s1(1843, "Ahmed");
     s1.registerCourse(500);
     Student s2(4872, "Ali");

@@ -27,6 +27,7 @@ public:
 
     void insert(T data);
 
+    void deleteNode(T data);
 
     void traverse();
     
@@ -36,7 +37,7 @@ public:
 class Student 
 {
     private:
-        int studentID;
+        int ID;
         string studentName;
         int RegisteredCourses[10];
         int coursesCount;
@@ -47,13 +48,14 @@ class Student
         void display();
         void registerCourse(int courseCode);
         void dropCourse(int courseCode);
+        int getID();
     
 };
 
 class Course 
 {
     private:
-        int courseID;
+        int ID;
         string courseName;
         LinkedList<int> RegisteredCourses;
 
@@ -61,6 +63,7 @@ class Course
         Course(int courseID, string courseName);
         ~Course();    
         void display ();
+        int getID();
     
 };
 
