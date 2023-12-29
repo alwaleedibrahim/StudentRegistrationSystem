@@ -38,12 +38,15 @@ class Student
     private:
         int studentID;
         string studentName;
+        int RegisteredCourses[10];
+        int coursesCount;
 
     public:
         Student(int studentID, string studentName);
         ~Student();
         void display();
         void registerCourse(int courseCode);
+        void dropCourse(int courseCode);
     
 };
 

@@ -19,7 +19,9 @@ int main () {
     courses->traverse();
 
     Student s1(1843, "Ahmed");
+    s1.registerCourse(500);
     Student s2(4872, "Ali");
+
     Student s3(2187, "Sara");
 
     LinkedList<Student> *students = new LinkedList<Student>;
