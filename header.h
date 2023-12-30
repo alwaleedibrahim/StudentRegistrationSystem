@@ -9,62 +9,54 @@ template <class T>
 class LinkedList
 {
 private:
-    class Node 
+    class Node
     {
-        public:
-            T data;
-            Node *next;
+    public:
+        T data;
+        Node *next;
 
-            Node(T newData) : data(newData), next(NULL) {};
+        Node(T newData) : data(newData), next(NULL){};
     };
-    
-    Node *head;
-    
-public:
-    LinkedList ();
 
-    ~LinkedList ();
+    Node *head;
+
+public:
+    LinkedList();
+    ~LinkedList();
 
     void insert(T data);
-
-    void deleteNode(T data);
-
     void traverse();
-    
 };
 
-
-class Student 
+class Student
 {
-    private:
-        int ID;
-        string studentName;
-        int RegisteredCourses[10];
-        int coursesCount;
+private:
+    int studentID;
+    string studentName;
+    int registeredCourses[5];
+    int coursesCount;
 
-    public:
-        Student(int studentID, string studentName);
-        ~Student();
-        void display();
-        void registerCourse(int courseCode);
-        void dropCourse(int courseCode);
-        int getID();
-    
+public:
+    Student(int studentID, string studentName);
+    ~Student();
+
+    void display();
+    void registerCourse(int courseCode);
+    void unregisterCourse(int courseCode);
 };
 
-class Course 
+class Course
 {
-    private:
-        int ID;
-        string courseName;
-        LinkedList<int> RegisteredCourses;
+private:
+    int courseID;
+    string courseName;
+    LinkedList<int> registeredCourses;
 
-    public:
-        Course(int courseID, string courseName);
-        ~Course();    
-        void display ();
-        int getID();
+public:
+    Course(int courseID, string courseName);
+    ~Course();
     
+    void display();
 };
 
 #include "header.cpp"
