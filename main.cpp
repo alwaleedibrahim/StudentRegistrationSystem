@@ -22,7 +22,6 @@ int main()
     courses->insert(cs503);
     courses->insert(cs504);
     courses->insert(cs505);
-
     courses->traverse();
 
     // Create students

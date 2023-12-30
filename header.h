@@ -50,7 +50,6 @@ class Course
 private:
     int courseID;
     string courseName;
-    LinkedList<int> registeredCourses;
 
 public:
     Course(int courseID, string courseName);
