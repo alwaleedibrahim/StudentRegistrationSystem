@@ -24,26 +24,47 @@ int main()
     courses->insert(cs505);
     courses->traverse();
 
-    // Create students
-    Student Ahmed(1843, "Ahmed");
-    Ahmed.registerCourse(500);
-    Ahmed.registerCourse(503);
-
-    Student Hassan(4872, "Hassan");
-    Hassan.registerCourse(504);
-
-    Student Ali(2187, "Ali");
-    Ali.registerCourse(505);
-
-    // List of students
-    cout << "\x1B[34m List of students :)\033[0m\t\t" << endl << endl;
-
+    // Student registration
     LinkedList<Student> *students = new LinkedList<Student>;
-    students->insert(Ahmed);
-    students->insert(Hassan);
-    students->insert(Ali);
+    
+    while (true) {
+        cout << "\n\x1B[33mStudent Registration:\033[0m\n";
 
-    students->traverse();
+        string studentName;
+        int studentId, courseId;
+        char choice;
+        
+        cout << "Enter student name: ";
+        cin >> studentName;
 
+        cout << "Enter student ID: ";
+        cin >> studentId;
+
+        Student newStudent(studentId, studentName);
+
+        // Register courses for the new student
+        cout << "\n\x1B[33mCourse Registration:\033[0m\n";
+        
+        do {
+            cout << "Enter course ID to register (0 to finish): ";
+            cin >> courseId;
+
+            if (courseId != 0) {
+                newStudent.registerCourse(courseId);
+            }
+        } while (courseId != 0);
+
+        // Add the new student to the list
+        students->insert(newStudent);
+
+        // List of students
+        cout << "\n\x1B[34m Updated list of students :)\033[0m\t\t" << endl << endl;
+        students->traverse();
+
+        cout << "Do you want to register another student? (y/n): ";
+        cin >> choice;
+
+        if (choice == 'n') break;
+    }
     return 0;
 };
