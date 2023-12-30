@@ -1,7 +1,5 @@
+#ifdef HEADER_H
 #include "header.h"
-#include <string>
-#include <iostream>
-using namespace std;
 
 // LinkedList
 template <class T>
@@ -126,3 +124,4 @@ void Course::display()
     cout << "--> Name: " << this->courseName << endl;
     cout << endl;
 }
+#endif
